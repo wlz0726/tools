@@ -17,7 +17,7 @@ close IN;
 @char%$ARGV[1] && $j++;
 
 for ($i=1, $f=A; $i<=$j; $i++, $f++) {
-    open ($f, "> $ARGV[0].split.$i" ) || do {
+    open ($f, "> $ARGV[0].s.$i" ) || do {
         print "\nsplit file $ARGV[0].split.$i failed!\n";
         exit 0; };
     &RW($f);

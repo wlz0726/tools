@@ -1,4 +1,5 @@
 #!/usr/bin/perl -w
+# split sh file perl N line
 open (IN, "$ARGV[0]" ) || do {
     print "\nCan not open file\nUsage:splitfile.pl Filename SplitLinesPerFile\n";
     exit 0; };
