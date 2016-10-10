@@ -1,0 +1,13 @@
+library("ggplot2")
+ggplot(a,aes(x=a\$$name))
+pdf(file="file.in.pdf",width=20,height=7)
+dev.off()
+
+a=read.table("file.in",header=F)
+ggplot(a,aes(x=a$V2,y=a$V5))+ geom_point()
+ggplot(a,aes(x=a$V1,y=a$V2))+geom_quantile()
+
+qplot(x=a$V1, y=a$V2, colour=a$V3,geom="line")
+qplot(x=a$V1, y=a$V2, geom="line")
+
+qplot(x=a\$VBIN_START, y=a\$VTajimaD, geom=\"line\")
