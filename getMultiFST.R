@@ -1,3 +1,4 @@
+# test
 getMultiFST<-function(filein, fileout, from_known=FALSE, len_win=0) {
 
 	# len_win: length of windows
