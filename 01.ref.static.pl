@@ -17,10 +17,10 @@ while(my $s =$in->next_seq()){
 }
 undef $in;
 my @seqsArray=sort {$seqs{$b}{'len'} <=> $seqs{$a}{'len'}} keys %seqs;
-
-print "total    :\t",scalar(@seqsArray),"(seqs), ",$totallen,"(bases), average length: ",$totallen/@seqsArray,"\n";
-print "longest  :\t", $seqsArray[0],"(name)\t",$seqs{$seqsArray[0]}{'len'},"(length)\n";
-print "shortest :\t",$seqsArray[$#seqsArray],"(name)\t", $seqs{$seqsArray[$#seqsArray]}{'len'},"(length)\n";
+open(O,"> $fastaFile.statistics");
+print O "total    :\t",scalar(@seqsArray),"(seqs), ",$totallen,"(bases), average length: ",$totallen/@seqsArray,"\n";
+print O "longest  :\t", $seqsArray[0],"(name)\t",$seqs{$seqsArray[0]}{'len'},"(length)\n";
+print O "shortest :\t",$seqsArray[$#seqsArray],"(name)\t", $seqs{$seqsArray[$#seqsArray]}{'len'},"(length)\n";
 my $len=0;
 my ($fn50,$fn90)=(1,1);
 my $num=0;
@@ -28,17 +28,18 @@ foreach my $s(@seqsArray){
     $len+=$seqs{$s}{'len'};
     $num++;
     if($len/$totallen>0.5 && $fn50){
-        print "n50  =\t",$seqs{$s}{'len'},"\t";
-        print "number=$num\n";
+        print O "n50  =\t",$seqs{$s}{'len'},"\t";
+        print O "number=$num\n";
         $fn50=0;
     }
     elsif($len/$totallen>0.9 && $fn90){
-        print "n90  =\t",$seqs{$s}{'len'},"\t";
-        print "number=$num\n";
+        print O "n90  =\t",$seqs{$s}{'len'},"\t";
+        print O "number=$num\n";
         $fn90=0;
         last;
     }
 }
-print "totalN=$totalN\t";
+print O "totalN=$totalN\t";
 my $percent=$totalN/$totallen;
-print "N percent:$percent\n";
+print O "N percent:$percent\n";
+close O;
