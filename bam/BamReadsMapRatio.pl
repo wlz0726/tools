@@ -2,25 +2,27 @@
 use strict;
 use warnings;
 
+# count mapped reads number and mapping rate
 my $file=shift;;
-my $id;
+my $name=(split(/\/,$file/))[-1];
+my $id=(split(/\./,$name))[0];
+
 my $all=0;
 my $aln=0;
-if($file=~m/(\S+)\.bam$/){
-    $id=$1;
-}else{
-    die "$file\n";
-}
-#print "$file\n";
 
-open(F, "samtools view $file |");
+
+open(F, "/home/wanglizhong/bin/samtools view $file |");
 while(<F>){
     chomp;
     next if(/^\@SQ/);
     my @a=split(/\s+/);
-    $aln++ if($a[2] ne "*");
+    if($1 & 4){
+	# unmapped
+    }else{
+	$aln++;
+    }
     $all++;
 }
 close F;
 my $per=$aln/$all;
-print "$id\taln:$aln\tall:$all\tpercent:$per\n";
+print "$id\t$aln\t$all\t$per\n";
