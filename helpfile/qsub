@@ -1,0 +1,12 @@
+qsub -cwd -l vf=1G -P AEAInte -q bc.q test.sh
+qsub -cwd -l vf=100G -P AEAInte -q bc_supermem.q test.sh (Big Memery)
+
+ProjectNum：
+CATwiwR : Cattle
+AEAInte : test
+
+qstat  # check job
+qdel   # kill job
+qsub job.sh
+
+for i in DIROUT/*.pbs; do qsub $i;done

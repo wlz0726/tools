@@ -1,0 +1,1 @@
+perl /ifshk7/BC_PS/liaoqijun/public/kegg/enrich/kegg_pathway.pl /ifshk7/BC_PS/liaoqijun/public/kegg/enrich/significant.gene.txt /ifshk7/BC_PS/liaoqijun/public/kegg/enrich/cow.background.gene.list /ifshk7/BC_PS/liaoqijun/public/kegg/enrich/cow_KEGG_pathways_db_Oct2015_gene.list out.txt

@@ -1,0 +1,46 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+
+my($fileIn,$mem,$copy_numbers,$proj_num)=@ARGV;
+die("usage: <inCmd> <mem> <split_numbers>  (or CATwiwR(cattle) RATxdeR(BlindMoleRat) SHEtbyR(sheep) MOUwueR (zwy) AEAInte(test))\n")unless($copy_numbers);
+$proj_num||="CATwiwR";
+
+`perl /home/wanglizhong/bin/000.split.sh.pl $fileIn $copy_numbers`;
+
+my $outname=$fileIn;
+$outname =~ s/(\.s\.\d+)$//;
+my $dirout="z.$outname.z";
+`mkdir $dirout`;
+
+
+my @f=<$fileIn.s.*>;
+
+foreach my $file(@f){
+    open(Fo,"> $dirout/z.$file.pbs");
+    print Fo "
+#\$ -S /bin/sh
+#\$ -e $dirout/z.$file.pbs.\$JOB_ID.e
+#\$ -o $dirout/z.$file.pbs.\$JOB_ID.o
+#\$ -l vf=${mem}G
+#\$ -m n
+#\$ -cwd
+#\$ -P $proj_num
+#\$ -q bc.q
+";
+    my $pwd=`pwd`;
+    chomp $pwd;
+    print Fo "cd $pwd\n";
+    print Fo "\ndate\n";
+    open(F,'<',$file) or die("$!: $file\n");
+    while(<F>){
+	print Fo "$_";
+    }
+    close(F);
+    print Fo "\ndate\n";
+    close(Fo);
+    
+}
+
+
+`rm $fileIn.s.*`;

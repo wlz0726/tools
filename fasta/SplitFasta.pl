@@ -12,8 +12,7 @@ my $in=Bio::SeqIO->new(-file=>"$fastaFile",-format=>'Fasta');
 while(my $s =$in->next_seq()){
     my $id=$s->id;
     my $seq=$s->seq;
-    open(O1,"> $out/$id.fa");
-    print O1 ">$id\n$seq\n";
-    close O1;
+    my $out=Bio::SeqIO->new(-file=>"> $out/$id.fa",-format=>'Fasta');
+    $out->write_seq($s);
 }
 

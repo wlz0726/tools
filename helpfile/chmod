@@ -1,0 +1,1 @@
+chmod -R 777 /dir/path # recursive chmod

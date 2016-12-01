@@ -1,0 +1,27 @@
+cpan
+install GD::Graph::histogram
+
+cpanm -l /ifshk5/PC_HUMAN_EU/USER/wanglizhong/perl5 Math::Random
+
+
+
+
+cpanm :
+http://search.cpan.org/~miyagawa/Menlo-1.9003/script/cpanm-menlo
+
+    cpanm Math::Random
+    cpanm -l /home/share/user/user104/perl5/lib/perl5/ Math::Random
+
+    cpanm Plack
+    cpanm Plack/Request.pm
+    cpanm MIYAGAWA/Plack-1.0000.tar.gz
+    cpanm /path/to/Plack-1.0000.tar.gz
+    cpanm http://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/Plack-0.9990.tar.gz
+    cpanm git://github.com/plack/Plack.git
+
+    cpanm Plack~1.0000                 # 1.0000 or later
+    cpanm Plack~">= 1.0000, < 2.0000"  # latest of 1.xxxx
+    cpanm Plack@0.9990                 # specific version. same as Plack~"== 0.9990"
+
+   cpanm git://github.com/plack/Plack.git@1.0000        # tag	
+   cpanm git://github.com/plack/Plack.git@devel         # branch

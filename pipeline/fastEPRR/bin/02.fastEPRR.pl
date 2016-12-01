@@ -25,7 +25,7 @@ foreach my $vcf(@vcf){
     print O1 "library(FastEPRR)\nFastEPRR_VCF_step1(vcfFilePath=\"$now\/$vcf\",winLength=\"50\", winDXThreshold=30,srcOutputFilePath=\"$now/$step1/$chr\")\n";
     close O1;
     
-    Print R1 "export LD_LIBRARY_PATH=/home/wanglizhong/lib:\$LD_LIBRARY_PATH; export R_LIBS=/ifshk7/BC_PS/wanglizhong/R:\$R_LIBS;/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/R-3.1.1/bin/Rscript $now/$0.step1/$chr.r\n";
+    print R1 "export LD_LIBRARY_PATH=/home/wanglizhong/lib:\$LD_LIBRARY_PATH; export R_LIBS=/ifshk7/BC_PS/wanglizhong/R:\$R_LIBS;/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/R-3.1.1/bin/Rscript $now/$0.step1/$chr.r\n";
 }
 close R1;
 

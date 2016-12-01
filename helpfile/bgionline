@@ -1,0 +1,8 @@
+
+
+cebe4f93-3c5b-4e25-9f38-339dcc844582
+# test run smindex.samtools_index.SAMtoolsIndex represent dirID.WrapperPrefix.ClassName *.json
+l3 run smindex.samtools_index.SAMtoolsIndex input_index.json
+
+# check project id
+bo list_user_projects

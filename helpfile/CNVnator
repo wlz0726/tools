@@ -1,0 +1,17 @@
+export ROOTSYS=/ifshk5/PC_HUMAN_EU/USER/zhuwenjuan/bin/software/root;export LD_LIBRARY_PATH=/ifshk5/PC_HUMAN_EU/USER/zhuwenjuan/bin/software/root/lib:$LD_LIBRARY_PATH;cd /ifshk5/PC_HUMAN_EU/USER/wanglizhong/projects/project.2.RATxdeR/03.CNV/test/01.cnv.V3.seperate.pl.out/CNV/WGC022456D;
+
+
+####### 1 EXTRACTING READ MAPPING FROM BAM/SAM FILES
+/ifshk5/PC_HUMAN_EU/USER/zhuwenjuan/bin/software/CNV/CNVnator_v0.2.7/src/cnvnator -root WGC022456D.scaffold13150.root -genome spalax -unique -tree /ifshk5/BC_COM_P11/F16FTSAPHT0404/RATxdeR/s2.mapping/spalax/WGC022456D/WGC022456D.sort.markdup.bam -chrom scaffold13150;     
+
+####### 2 GENERATING A HISTOGRAM
+/ifshk5/PC_HUMAN_EU/USER/zhuwenjuan/bin/software/CNV/CNVnator_v0.2.7/src/cnvnator -root WGC022456D.scaffold13150.root -genome spalax -d /ifshk5/PC_HUMAN_EU/USER/wanglizhong/projects/project.2.RATxdeR/ref/S.galili.v1.0.fa.split -his 100 -chrom scaffold13150;     
+
+####### 3 CALCULATING STATISTICS
+/ifshk5/PC_HUMAN_EU/USER/zhuwenjuan/bin/software/CNV/CNVnator_v0.2.7/src/cnvnator -root WGC022456D.scaffold13150.root -stat 100 -chrom scaffold13150;     
+
+####### 4 RD SIGNAL PARTITIONING
+/ifshk5/PC_HUMAN_EU/USER/zhuwenjuan/bin/software/CNV/CNVnator_v0.2.7/src/cnvnator -root WGC022456D.scaffold13150.root -partition 100 -chrom scaffold13150;     
+
+####### 5 CNV CALLING
+/ifshk5/PC_HUMAN_EU/USER/zhuwenjuan/bin/software/CNV/CNVnator_v0.2.7/src/cnvnator -root WGC022456D.scaffold13150.root -call 100 -chrom scaffold13150 > WGC022456D.scaffold13150.cnv;

@@ -1,0 +1,12 @@
+CATwiwR : Cattle
+AEAInte : test
+
+
+C-z    # hang-up the job
+jobs   # current pending jobs
+bg %N  # Throw job into backgroud
+fg %N  # recover the job
+
+# kill job with PID 
+ps -ef|grep "job" # to get PID of a job
+kill -9 PID 

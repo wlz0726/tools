@@ -1,0 +1,12 @@
+tmux ls
+tmux
+tmux att -t 1
+
+# new 
+tmux new -s new_name
+
+
+ctrl+b d    exit
+
+tmux kill-session -t 1
+

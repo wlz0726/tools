@@ -1,0 +1,11 @@
+# b4 phase vcf
+java -Xmx300g -jar /home/share/user/user104/software/beagle/b4.r1196.jar gtgl=yak.flt03.vcf out=yak.2.21 nthreads=60
+# with ref vcf with more individuals
+java -Xmx300g -jar /home/share/user/user104/software/beagle/b4.r1196.jar gtgl=yak.flt03.vcf out=yak.2.21 nthreads=60 ref=ref.vcf
+
+
+
+
+# b3  beagle file ；
+# chr name can not have "_", change it to "." will be ok
+java -Xmx30g -jar /home/share/user/user104/software/beagle/beagle.jar out=2.b3out like=$id.$id2.beagle.gz.rename.gz nsamples=20

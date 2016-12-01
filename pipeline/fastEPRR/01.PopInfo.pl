@@ -1,4 +1,6 @@
-open(I,"sample_label.rename.ids"); # only need two cols: id  population 
+my $samplelist=shift; # samplelist with all populations; only need two cols: sample_id  population
+
+open(I,"$samplelist"); 
 my %h;
 while(<I>){
     chomp;

@@ -1,0 +1,18 @@
+R CMD INSTALL -l ~/R/ ~/test/Hmisc_3.13-0.tar.gz
+R CMD INSTALL pruning_0.51.tar.gz
+
+# in R envirment !!!!!!!!!!!!!!!!!
+# step 1: use this to downlod packeges in directory like "/tmp/RtmpPfkVOp/downloaded_packages/"
+source("http://www.bioconductor.org/biocLite.R")
+biocLite(c("pkg1", "pkg2")) #Where "pkg1" and "pkg2" are the names of the packages you would like to install.
+
+# step 2: install multiple packages in Once! with the same node (software-install)
+R CMD INSTALL -l ~/R/ /tmp/RtmpPfkVOp/downloaded_packages/*
+
+
+
+
+
+
+install.packages("ggplot2")
+

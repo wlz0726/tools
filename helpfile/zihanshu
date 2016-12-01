@@ -1,0 +1,18 @@
+my $DSCheader=&getHeader("2.MakeAllSNPsites.DSC.vcf");
+
+sub getHeader{
+    my $file=shift;
+    my $r;
+    open(F,$file);
+    while(<F>){
+       	chomp;
+       	next if(/^##/);
+       	if(/^#/){
+       	    $r=$_;
+       	}else{
+       	    last;
+       	}
+    }
+    close(F);
+    return $r;
+}

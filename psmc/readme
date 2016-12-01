@@ -1,0 +1,4 @@
+psmc_plot.pl -pSx 1e-5 -X1e-2 -M 'French,Papuan,Sardinian,Han,Yoruba,Karitiana,San,Madenka,Dai,Mbuti,Dinka,Denisova>0.0001' 11-Den 11-Den.psmc
+
+this site may help:
+https://hengli.uservoice.com/

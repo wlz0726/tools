@@ -1,0 +1,37 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+
+my($fileIn,$mem,$proj_num)=@ARGV;
+#die("usage: <inCmd> <mem>[RATxdeR]>\n")unless($mem);
+die("usage: inCmd mem (or CATwiwR(cattle) RATxdeR(BlindMoleRat) SHEtbyR(sheep) MOUwueR (zwy) AEAInte(test))\n")unless($mem);
+$proj_num||="CATwiwR";
+
+my $outname=$fileIn;
+$outname =~ s/(\.s\.\d+)$//;
+my $dirout="z.$outname.z";
+`mkdir $dirout`;
+
+open(Fo,"> $dirout/z.$fileIn.pbs");
+print Fo "
+#\$ -S /bin/sh
+#\$ -e $dirout/z.$fileIn.pbs.\$JOB_ID.e
+#\$ -o $dirout/z.$fileIn.pbs.\$JOB_ID.o
+#\$ -l vf=${mem}G
+#\$ -m n
+#\$ -cwd
+#\$ -P $proj_num
+#\$ -q bc.q
+";
+my $pwd=`pwd`;
+chomp $pwd;
+print Fo "cd $pwd\n";
+print Fo "\ndate\n";
+open(F,'<',$fileIn) or die("$!: $fileIn\n");
+while(<F>){
+    print Fo "$_";
+}
+close(F);
+print Fo "\ndate\n";
+close(Fo);
+

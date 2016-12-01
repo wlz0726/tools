@@ -1,0 +1,33 @@
+ENSP00000419975-D1	PEX5L	PEX5R_HUMAN PEX5-related protein	Homo sapiens	GO:0000268	1.81003982250723e-09	1	17	6	18681	1.30926213828023e-07	molecular_function	peroxisome targeting sequence binding
+ENSP00000219097-D1	ORC6L	ORC6_BOVIN Origin recognition complex subunit 6	Bos taurus	GO:0000808	5.65554029366624e-07	1	17	9	18678	2.45450448745115e-05	cellular_component	origin recognition complex
+ENSBTAP00000019734-D1	MYLK3	MYLK3_HUMAN Putative myosin light chain kinase 3	Homo sapiens	GO:0002528	2.09804400561763e-20	1	17	2	18685	9.10551098438051e-18	biological_process	regulation of vascular permeability involved in acute inflammatory response
+ENSP00000219097-D1	ORC6L	ORC6_BOVIN Origin recognition complex subunit 6	Bos taurus	GO:0004427	7.59767720673356e-11	1	17	5	18682	8.24347976930591e-09	molecular_function	inorganic diphosphatase activity
+ENSBTAP00000019734-D1	MYLK3	MYLK3_HUMAN Putative myosin light chain kinase 3	Homo sapiens	GO:0004683	0.000241619455370796	1	17	17	18670	0.00582571353505141	molecular_function	calmodulin-dependent protein kinase activity
+ENSBTAP00000019734-D1	MYLK3	MYLK3_HUMAN Putative myosin light chain kinase 3	Homo sapiens	GO:0004687	1.22722059363746e-15	1	17	3	18684	1.77537912546219e-13	molecular_function	myosin light chain kinase activity
+ENSP00000419975-D1	PEX5L	PEX5R_HUMAN PEX5-related protein	Homo sapiens	GO:0005048	0.00052259505036719	1	17	19	18668	0.00945026049414002	molecular_function	signal sequence binding
+ENSP00000219097-D1	ORC6L	ORC6_BOVIN Origin recognition complex subunit 6	Bos taurus	GO:0005664	5.65554029366624e-07	1	17	9	18678	2.45450448745115e-05	cellular_component	nuclear origin of replication recognition complex
+ENSBTAP00000016726-D1	TEKT4	TEKT4_BOVIN Tektin-4	Bos taurus	GO:0005874	6.93498943653919e-05	3	15	318	18369	0.00214984672532715	cellular_component	microtubule
+ENSP00000302777-D1	TUBB3	TBB3_MACFA Tubulin beta-3 chain	Macaca fascicularis	GO:0005874	6.93498943653919e-05	3	15	318	18369	0.00214984672532715	cellular_component	microtubule
+ENSP00000268699-D1	GAS8	GAS8_BOVIN Growth arrest-specific protein 8	Bos taurus	GO:0005874	6.93498943653919e-05	3	15	318	18369	0.00214984672532715	cellular_component	microtubule
+ENSBTAP00000046304-D9	Afg3l1	AFG31_MOUSE AFG3-like protein 1	Mus musculus	GO:0007007	0.000241619455370796	1	17	17	18670	0.00582571353505141	biological_process	inner mitochondrial membrane organization
+ENSBTAP00000046304-D9	Afg3l1	AFG31_MOUSE AFG3-like protein 1	Mus musculus	GO:0008053	1.93036238146248e-06	1	17	10	18677	7.6161570323156e-05	biological_process	mitochondrial fusion
+ENSP00000229268-D2	USP13	UBP13_HUMAN Ubiquitin carboxyl-terminal hydrolase 13	Homo sapiens	GO:0008242	5.23035499918664e-05	1	17	14	18673	0.00174613389972846	molecular_function	omega peptidase activity
+ENSP00000268699-D1	GAS8	GAS8_BOVIN Growth arrest-specific protein 8	Bos taurus	GO:0009434	0.000362410190954309	1	17	18	18669	0.00714936467609864	cellular_component	microtubule-based flagellum
+ENSP00000229268-D2	USP13	UBP13_HUMAN Ubiquitin carboxyl-terminal hydrolase 13	Homo sapiens	GO:0030318	0.00052259505036719	1	17	19	18668	0.00945026049414002	biological_process	melanocyte differentiation
+ENSP00000268699-D1	GAS8	GAS8_BOVIN Growth arrest-specific protein 8	Bos taurus	GO:0031267	0.000154465299858858	2	16	135	18552	0.00446919600924962	molecular_function	small GTPase binding
+ENSP00000419975-D1	PEX5L	PEX5R_HUMAN PEX5-related protein	Homo sapiens	GO:0031267	0.000154465299858858	2	16	135	18552	0.00446919600924962	molecular_function	small GTPase binding
+ENSP00000302777-D1	TUBB3	TBB3_MACFA Tubulin beta-3 chain	Macaca fascicularis	GO:0033218	0.000357032916448274	2	16	149	18538	0.00714936467609864	molecular_function	amide binding
+ENSP00000419975-D1	PEX5L	PEX5R_HUMAN PEX5-related protein	Homo sapiens	GO:0033218	0.000357032916448274	2	16	149	18538	0.00714936467609864	molecular_function	amide binding
+ENSBTAP00000046304-D9	Afg3l1	AFG31_MOUSE AFG3-like protein 1	Mus musculus	GO:0034982	1.96841898173413e-08	1	17	7	18680	1.22041976867516e-06	biological_process	mitochondrial protein processing
+ENSBTAP00000016726-D1	TEKT4	TEKT4_BOVIN Tektin-4	Bos taurus	GO:0035086	5.65554029366624e-07	1	17	9	18678	2.45450448745115e-05	cellular_component	flagellar axoneme
+ENSP00000302777-D1	TUBB3	TBB3_MACFA Tubulin beta-3 chain	Macaca fascicularis	GO:0042277	0.000302260400898944	2	16	146	18541	0.00655905069950708	molecular_function	peptide binding
+ENSP00000419975-D1	PEX5L	PEX5R_HUMAN PEX5-related protein	Homo sapiens	GO:0042277	0.000302260400898944	2	16	146	18541	0.00655905069950708	molecular_function	peptide binding
+ENSBTAP00000046304-D9	Afg3l1	AFG31_MOUSE AFG3-like protein 1	Mus musculus	GO:0042407	1.81003982250723e-09	1	17	6	18681	1.30926213828023e-07	biological_process	cristae formation
+ENSBTAP00000019734-D1	MYLK3	MYLK3_HUMAN Putative myosin light chain kinase 3	Homo sapiens	GO:0043114	0.000986315942117378	1	17	21	18666	0.0158541155140349	biological_process	regulation of vascular permeability
+ENSBTAP00000002478-D1	FANCA	FANCA_HUMAN Fanconi anemia group A protein	Homo sapiens	GO:0043240	5.38837227443731e-06	1	17	11	18676	0.000194879463925483	cellular_component	Fanconi anaemia nuclear complex
+ENSBTAP00000019734-D1	MYLK3	MYLK3_HUMAN Putative myosin light chain kinase 3	Homo sapiens	GO:0045214	0.000986315942117378	1	17	21	18666	0.0158541155140349	biological_process	sarcomere organization
+ENSP00000229268-D2	USP13	UBP13_HUMAN Ubiquitin carboxyl-terminal hydrolase 13	Homo sapiens	GO:0050931	0.000728523873648822	1	17	20	18667	0.0126471744465435	biological_process	pigment cell differentiation
+ENSP00000268699-D1	GAS8	GAS8_BOVIN Growth arrest-specific protein 8	Bos taurus	GO:0051020	0.000269498632305937	2	16	144	18543	0.0061559161274093	molecular_function	GTPase binding
+ENSP00000419975-D1	PEX5L	PEX5R_HUMAN PEX5-related protein	Homo sapiens	GO:0051020	0.000269498632305937	2	16	144	18543	0.0061559161274093	molecular_function	GTPase binding
+ENSP00000229268-D2	USP13	UBP13_HUMAN Ubiquitin carboxyl-terminal hydrolase 13	Homo sapiens	GO:0070536	0.000241619455370796	1	17	17	18670	0.00582571353505141	biological_process	protein K63-linked deubiquitination
+ENSP00000219097-D1	ORC6L	ORC6_BOVIN Origin recognition complex subunit 6	Bos taurus	GO:0071344	1.22722059363746e-15	1	17	3	18684	1.77537912546219e-13	biological_process	diphosphate metabolic process

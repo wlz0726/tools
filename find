@@ -1,0 +1,2 @@
+# match
+find /path/dir -regextype "posix-egrep" -regex ".*\.(pl|sh|py|r|pdf|)$"

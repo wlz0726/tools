@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+my $f=shift;
+die "$0 input\n"unless $f;
+open(O,"> $f.r");
+print O "
+library(\"ggplot2\")
+pdf(file=\"$f.pdf\",width=20,height=7)
+#png(\"$f.png\",width=5000,height=400)
+a=read.table(\"$f\",header=F)
+qplot(x=a\$V2, y=a\$V4, colour=factor(a\$V5),geom=\"line\")
+
+
+ggplot(a,aes(a\$V2, y=a\$V4))+geom_quantile(aes(colour=factor(a\$V5)))+labs(title = \"test\",x=\"test\",y=\"test\")
+
+
+dev.off()
+";
+close O;
+`Rscript $f.r`;
+`rm $f.r`;
