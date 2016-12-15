@@ -1,8 +1,7 @@
 # b4 phase vcf
-java -Xmx3g -jar /home/share/user/user104/software/beagle/b4.r1196.jar gtgl=yak.flt03.vcf out=yak.2.21 nthreads=60
-
+java -Xmx300g -jar /home/share/user/user104/software/beagle/b4.r1196.jar gtgl=yak.flt03.vcf out=yak.2.21 nthreads=60
 # with ref vcf with more individuals
-java -Xmx3g -jar /home/share/user/user104/software/beagle/b4.r1196.jar gtgl=yak.flt03.vcf out=yak.2.21 nthreads=60 ref=ref.vcf
+java -Xmx300g -jar /home/share/user/user104/software/beagle/b4.r1196.jar gtgl=yak.flt03.vcf out=yak.2.21 nthreads=60 ref=ref.vcf
 
 ## gl as input, do genotyping ; output unphased genotype 
 java -jar beagle.27Jul16.86a.jar gl=test.vcf.gz out=gl

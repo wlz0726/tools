@@ -1,0 +1,1 @@
+convert -sample 500%x500% $depth.V1.pdf $depth.V1.png

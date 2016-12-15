@@ -8,19 +8,13 @@ foreach my $in(@in){
     $info =~ /cwd:\s+([\S]+)/;
     my $dir=$1;
     $info =~ /stderr_path_list:\s+NONE:NONE:([\S]+)\.\$JOB_ID.e/;
-    my $prefix="$dir/$1";
-    my $pbs="$1";
+    my $pbs="$dir/$1";
     
     #print "$pbs\n";
     #`qdel $in`;# >> ~/test/log`;
     #`rm $pbs.*e`;
     #`rm $pbs.*o`;
     #`cd $dir; qsub $pbs`;# >> ~/test/log`;
-    print "cd $dir; qdel $in;  rm $prefix.*;  qsub $pbs;cd -;\n";
-    #`cd $dir`;
-    #`qdel $in`;
-    #`rm $pbs.*`;
-    #`qsub $pbs`;
-    #`cd -`;
+    print "cd $dir; qdel $in;  rm $pbs.*e; rm $pbs.*o; qsub $pbs;\n";
 }
 

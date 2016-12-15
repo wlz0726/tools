@@ -8,4 +8,4 @@ my $tmp;
 for (my $i=$start;$i<=$end;$i++){
     $tmp.=" $i";
 }
-`qrls $tmp`;
+`qdel $tmp`;
