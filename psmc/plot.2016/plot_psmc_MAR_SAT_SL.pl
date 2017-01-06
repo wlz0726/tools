@@ -196,7 +196,7 @@ set xlab "Years (g=$opts{g}, {/Symbol m}=$ylab_aux)" $afont;
   set style line 101 lt 0 lc rgb "grey" $lw;
   set style line 102 lt 0 lc rgb "black" $lw;
 
-  set output "$prefix.epss" ;
+  set output "$prefix.eps" ;
   plot );
   if ( $opts{M}) {
           my @titles = split(/[,;]/, $opts{M});
@@ -223,7 +223,7 @@ set xlab "Years (g=$opts{g}, {/Symbol m}=$ylab_aux)" $afont;
           system("epstopdf $prefix.eps");
   }
 
-    system ("convert  $prefix.epss  $prefix.epss.pdf  ") ;
+    system ("convert  $prefix.eps  $prefix.eps.pdf  ") ;
 # remove files
 
 #  unless (defined($opts{R})) {

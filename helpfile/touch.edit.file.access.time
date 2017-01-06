@@ -1,0 +1,3 @@
+touch -c -m -t 201101110000 teadme.txt
+
+cat /ifshk7/BC_PS/P_bc_rm/NewScan/ifshk7_BC_PS/OUT/20161222.oldfile |grep wanglizhong|awk -F" " '{print "touch -c -m -t 201612121212",$3}' > test.sh

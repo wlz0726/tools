@@ -4,6 +4,14 @@ pdf(file="file.in.pdf",width=20,height=7)
 ggplot(a,aes(x=a\$$name))
 dev.off()
 
+# suitable font and pdf size ; 1/6 A4 size; title 12; text 10
+pdf("test2.pdf",width=4,height=3) 
+mycolor=c("#E31A1C","#1F78B4","#6A3D9A","#FF7F00") # red blue purple orange # 4 colors
+ggplot(c,aes(V2,V5/1000000,color=factor(V1)))+geom_point(alpha=0.7)+xlab(" ")+ylab("Shared SNP Number (M)")+scale_x_discrete(limits=c("NYC","LXC","YNC","QCC","YBC","JBC","RAN","FLV","HOL","LIM","JER"))+theme(legend.title = element_blank(),axis.title=element_text(size=12),axis.text=element_text(size=10),axis.text.x=element_text(angle = 90),legend.text=element_text(size=10))+scale_color_manual(values=mycolor)
+dev.off()
+
+
+
 # general
 +scale_color_manual(values=c(\"#2166ac\",\"#b2182b\"))
 +xlab(\"$list\")+ylab(\"frequence\")

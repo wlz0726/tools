@@ -49,3 +49,5 @@ image(1:8,1,as.matrix(1:8),col=mycolor,xlab=" ",ylab="",xaxt="n",yaxt="n",bty="n
 
 # blank theme
 ggplot(Yun,aes(x=pos,y=r,col=factor(chr)))+geom_line()+scale_color_manual(values=mycolor)+xlab("")+theme(axis.title.x = element_blank())+theme_bw()+theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank(),panel.border=element_blank())
+
+ggplot(yun1m2,aes(x=pos,y=r,col=factor(chr)))+geom_line()+scale_color_manual(values=mycolor)+xlab("Postions (Mb)")+ylab("Rec. rate (cM/Mb)")+theme(axis.title.x = element_blank())+theme_bw()+theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank(),panel.border=element_blank(),axis.line = element_line(colour = "black",size = 0.2),legend.position = "none",axis.title.x =element_text(size=14),axis.text.x=element_text(size=12),axis.title.y=element_text(size=14),axis.text.y = element_text(size=12))

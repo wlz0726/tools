@@ -34,4 +34,4 @@ set y2label "Surface air temperature({/Symbol <B0>}C) \n or global sea level(m) 
   set style line 101 lt 0 lc rgb "grey" lw 4;
   set style line 102 lt 0 lc rgb "black" lw 4;
   set output "01.plot.with.MAR_SAT_SL.pl.eps" ;
-  plot "AFR.txt" u 1:2 t "AFR.txt" w st ls 1, "EAS.txt" u 1:2 t "EAS.txt" w st ls 2, "bintanja2008.txt.nohead.tab.SurfaceTemp.txt" u 1:2 t "SAT" w st ls 101 axes x1y2,"bintanja2008.txt.nohead.tab.SeaLevl.txt" u 1:2 t "GSL" w st ls 100 axes x1y2,"2005_mar.txt" u 1:2 t "MAR" w st ls 102 axes x1y2;
+  plot "AFR.txt" u 1:2 t "AFR.txt" w st ls 1, "EAS.txt" u 1:2 t "EAS.txt" w st ls 2, "EUR.txt" u 1:2 t "EUR.txt" w st ls 3, "SAS.txt" u 1:2 t "SAS.txt" w st ls 4, "bintanja2008.txt.nohead.tab.SurfaceTemp.txt" u 1:2 t "SAT" w st ls 101 axes x1y2,"bintanja2008.txt.nohead.tab.SeaLevl.txt" u 1:2 t "GSL" w st ls 100 axes x1y2,"2005_mar.txt" u 1:2 t "MAR" w st ls 102 axes x1y2;

@@ -1,0 +1,2 @@
+cat KHV_CDX.outfile.final.txt CDX_HZY.outfile.final.txt JXY_TDY.outfile.final.txt JXY_HZY.outfile.final.txt TDY_HZY.outfile.final.txt CHB_JPT.outfile.final.txt KHV_CHB.outfile.final.txt CHB_CDX.outfile.final.txt JXY_CHB.outfile.final.txt CHB_TDY.outfile.final.txt CHB_HZY.outfile.final.txt>aa
+perl plot_rate_add3info.pl -M "KHV-CDX,HZY-CDX,JXY-TDY,JXY-HZY,TDY-HZY,JPT-CHB,KHV-CHB,CDX-CHB,JXY-CHB,TDY-CHB,HZY-CHB" -u 1.25e-08 -g 30 -x 1000  -X 200000 -w 4 -R  -P "left top" -Y 1.1  figure2c aa

@@ -29,4 +29,4 @@ set ylab "Effective population size (x10^4)" font "Helvetica,22";
   set style line 101 lt 0 lc rgb "grey" lw 4;
   set style line 102 lt 0 lc rgb "black" lw 4;
   set output "02.plot.no_MAR_SAT_SL.pl.eps" ;
-  plot "AFR.txt" u 1:2 t "AFR.txt" w st ls 1 ,"EAS.txt" u 1:2 t "EAS.txt" w st ls 2 ;
+  plot "AFR.txt" u 1:2 t "AFR.txt" w st ls 1 ,"EAS.txt" u 1:2 t "EAS.txt" w st ls 2 ,"EUR.txt" u 1:2 t "EUR.txt" w st ls 3 ,"SAS.txt" u 1:2 t "SAS.txt" w st ls 4 ;
