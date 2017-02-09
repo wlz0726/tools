@@ -5,8 +5,8 @@ use warnings;
 my($fileIn,$mem,$proj_num)=@ARGV;
 die("usage: $0 <shell_script> [mem] [project_num] \n\nProject_num: \nAEAInte(test)\nCATwiwR(cattle) \nRATxdeR(BlindMoleRat) \nSHEtbyR(sheep) \nHUMmuzR(zangyi)\n")unless($fileIn);
 # MOUwueR (zwy) AEAInte(test)
-$proj_num||="CATwiwR";
-$mem||="0.1";
+$proj_num||="HUMmuzR";
+$mem||="1";
 my $name="z.$fileIn.z";
 my $dirout="z.$fileIn.z";
 `mkdir $dirout` unless(-e $dirout);

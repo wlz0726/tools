@@ -1,0 +1,1 @@
+perl pipeline_msmc_Coalescencerate.pl -bamlist bamlist -ref /ifshk4/BC_COM_P5/F13HTSNWKF0106/CATwiwR/zhuwenjuan/step1.data/reference/UMD3.1.fasta -depth depthlist -poplist pop2i2t.list -vcflist vcflist -chrlist chrlist -poppair poppair.2indicus_2taurus -o group1

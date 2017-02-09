@@ -1,0 +1,16 @@
+
+VCFtools - 0.1.15
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--gzvcf /ifshk5/PC_HUMAN_EU/USER/zhuwenjuan/work/Cattle/step2.phase/result/VCF/Chr1.phased.vcf.gz
+	--chr Chr1
+	--keep BRM.samplelist
+	--recode
+	--stdout
+
+Using zlib version: 1.2.3
+Versions of zlib >= 1.2.4 will be *much* faster when reading zipped VCF files.
+Keeping individuals in 'keep' list
+After filtering, kept 4 out of 151 Individuals
+Outputting VCF file...
