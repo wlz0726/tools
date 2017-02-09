@@ -22,6 +22,7 @@ git commit -m "what changed this time"
 OR two command in one:  
 git commit -a -m "your commit message"
 # -a : Tell the command to automatically stage files that have been modified and deleted, but new files you have not told Git about are not affected.
+
 =======================================================
 
 git push origin master (branch name)
