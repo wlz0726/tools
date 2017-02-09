@@ -8,13 +8,13 @@ combined one ==>  git checkout -b <name> # creat and swich to branch
 
 
 git merge <name>
-
 git branch -d <name>              # delete branch
 
 
 =======================================================
 # stage file
 git add newfilename/*
+git rm removedfile.txt
 
 # commit staged tracked files
 git commit -m "what changed this time"
@@ -23,5 +23,8 @@ OR two command in one:  git commit -a -m "your commit message"
 =======================================================
 
 git push origin master (branch name)
+
+
+
 
 web set pull request (branches--branch name--add pull request)
