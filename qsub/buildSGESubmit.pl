@@ -3,9 +3,9 @@ use strict;
 use warnings;
 
 my($fileIn,$mem,$proj_num)=@ARGV;
-die("usage: $0 <shell_script> [mem] [project_num] \n\nProject_num: \nAEAInte(test)\nCATwiwR(cattle) \nRATxdeR(BlindMoleRat) \nSHEtbyR(sheep) \nHUMmuzR(zangyi)\n")unless($fileIn);
+die("usage: $0 <shell_script> [mem] [project_num] \n\nProject_num: \nAEAInte(test)\nCATwiwR(cattle) \nRATxdeR(BlindMoleRat) \nSHEtbyR(sheep) \nHUMmuzR HUMdwcR (zangyi)\n\n AEAInte (test)\n")unless($fileIn);
 # MOUwueR (zwy) AEAInte(test)
-$proj_num||="HUMmuzR";
+$proj_num||="HUMdwcR";
 $mem||="1";
 my $name="z.$fileIn.z";
 my $dirout="z.$fileIn.z";

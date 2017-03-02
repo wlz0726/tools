@@ -16,7 +16,11 @@ foreach my $in(@in){
     #`rm $pbs.*e`;
     #`rm $pbs.*o`;
     #`cd $dir; qsub $pbs`;# >> ~/test/log`;
-    print "cd $dir; qdel $in;  rm $prefix.*;  qsub $pbs;cd -;\n";
+    print "cd $dir
+qdel $in
+rm $prefix.*  
+qsub $pbs\n
+";
     #`cd $dir`;
     #`qdel $in`;
     #`rm $pbs.*`;

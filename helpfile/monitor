@@ -1,0 +1,8 @@
+/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/pymonitor/monitor
+monitor stat
+
+# help
+monitor
+
+# kill project
+monitor removeproject -p NAME -m 1

@@ -17,6 +17,17 @@ popinclude: Two samples(4 haps) each Pop: 'PopA  SampleA  SampleB'
             One samples(2 haps) each Pop: 'PopA  SampleA'
     outdir: Output directory [$0.out]
 
+   NB: bamlist and popinclude can be redundancy; while file poppair are not redundancy and it defined the final pops(individuals)
+
+4 steps:
+1. generate bed and vcf file 
+      bed: 1G, 1~10 hours
+      vcf: 1G, 1~6 hours
+2. PopA:PopB pair file
+           1G, 
+3. RCCR 
+           250G, 10~15 days
+
 "unless $popinclude;
 
 # default set
@@ -32,15 +43,27 @@ my $python='/opt/blc/python-3.1.2/bin/python3.1';
 my $set_python='export LD_LIBRARY_PATH=/opt/blc/python-3.1.2/lib:$LD_LIBRARY_PATH';
 ###====================================================================
 
+## read poppair
+my %population;
+open(I,"$poppair");
+while(<I>){
+    chomp;
+    my @a=split(/\:/);
+    $population{$a[0]}=1;
+    $population{$a[1]}=1;
+}
+close I;
+
 # read individual combination in popinclude
 my %pop;
 open(P,"$popinclude");
 while(<P>){
     chomp;
     my @a=split(/\s+/);
-    for(my $i=1;$i<@a;$i++){
-	$pop{$a[0]}{$a[$i]}++;
-    }
+    next if(!exists $population{$a[0]});
+    #print "$a[1]\n$a[2]\n";
+    $pop{$a[0]}{$a[1]}=1;
+    $pop{$a[0]}{$a[2]}=1;
 }
 close P;
 
@@ -67,7 +90,7 @@ while(<I1>){
     `mkdir -p $outpath`unless -e $outpath;
     foreach my $chr(sort keys %chr){
 	print O1 "$set_python; $samtools mpileup -q 20 -Q 20 -C 50 -u -r $chr -P ILLUMINA -f $ref $bam |$bcftools view -cgI - | $python $msmctools/bamCaller.py $depth $outpath/$id.$chr.mask.bed > $outpath/$id.$chr.raw.vcf;\n";
-	print O2 "$vcftools --gzvcf $chr{$chr} --indv $id --chr $chr --max-missing 1 --recode --out $outpath/$id.$chr;\n";
+	print O2 "$vcftools --gzvcf $chr{$chr} --indv $id --max-missing 1 --recode --out $outpath/$id.$chr;\n";
     }
 }
 close I1;

@@ -1,0 +1,156 @@
+Unknown option: help
+Usage
+
+	AUTHOR:chenlongyun@genomics.org.cn
+	NAME:CancerSequencingAnalysisPipeline(CSAP)
+	version:5.2.5 2013-12-19
+
+	CSAP [options] <work directory> <sample info>
+
+    ########################################################Basic##########################################################
+		
+		-anno <string>             select the species (hg18/hg19/mm9/mm10/other), default "hg19"
+		-Genome_size <int>         input the genome size(bp) of 'other' species, force "-anno other"
+		-type <string>             se/pe50/pe91/pe101/pe151, default "pe91"
+		-ref <string>              reference(GATK's chr sorted), default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/Database/human_19/hg19_fasta_GATK/hg19.fasta"
+		-BIN <string>              bin dir, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin"
+
+		-project <string>                project name, will be used in pymonitor
+		-q <string>                queue name, default "bc.q"
+		-P <string>                Priority name
+		-c <string>                generate configfile, default workDir/config.txt
+		-qsub <string>             generate qsub shell, default workDir/qsub.sh
+		
+		-QA <string>               generate the scripts of creating QC table, input file(WGS:"ProjectNo SubProjectCode SubProjectName OperatorName group";EC:"ProjectNo SubProjectCode SubProjectName OperatorName group Agilent/NimbleGen require_depth(30/50)")
+		-MS <file>                 generate the scripts of MS,input the spectrum result,format:sample     chr_pos1        ...     chr_posN.(example:/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/test/check)
+		-new_ms                    When you want to validate the MS result, set this parameter if you don't need to do alignment. default "OFF"
+	
+    ######################################################Clean Data#######################################################
+		
+		-gd                        generate the scripts of removing deadapter
+		-deadapter_para <string>   set the parameter for SOAPnuke filter, default "-n 0.1 -l 5 -q 0.5 -i"
+		-d_res <string>            set the required resource used in deadapter, default "1G"
+	
+    #######################################################Alignment#######################################################
+		
+		-gb                        generate the scripts of bwa alignment
+		-merge                     set it on to get each sample's final BAM file. default: off
+		-gr                        generate the scripts of GATK Realigner, just for hg18/hg19
+		-QC                        generate the scripts of BAM QC
+		-bwa_para <string>         set the parameter for bwa alignment, default "-o 1 -e 50 -m 100000 -t 4 -i 15 -q 10 -I"
+		-rmdup_para <string>       set the parameter for remove duplication, default "REMOVE_DUPLICATES=false"
+		-bwa_aln_res <string>      set the required resource used in bwa_aln, default "3G"
+		-bwa_sam_res <string>      set the required resource used in bwa_sam, default "4G"
+		-rmdup_res <string>        set the required resource used in rmdup, default "2G"
+		-bwa <string>              path to bwa, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/bwa/bwa"
+		-samtools <string>         path to samtools, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/samtools/samtools"
+		-picard <string>           path to picard dir, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/picard"
+	
+    #########################################################SNP###########################################################
+		
+		-gs                        generate the scripts of calling SNP
+		-snp <string>              select different tools to call snp,soapsnp/mpileup/GATK,seperate by comma(example:soapsnp,mpileup), default soapsnp
+		-dbSNP <string>            dbSNP's dir for SOAPsnp, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/Database/dbSNP/dbsnp132"
+		-soapsnp_para <string>     set the parameter for soapsnp, default "-t -u -z ! -r 0.00005 -e 0.0001 -Q L"
+		-sam_mpile_para <string>   set the parameter for samtools mpileup, default "-m 2 -C 50 -g -E"
+		-snp_filt_para <string>    the parameter for filting snp result, default "Q=20 Min_depth=4 Max_depth=1000 Min_alt_fre=0% Min_alt_depth=4"
+		-snp_strict_para <string>  set the parameter for snp's strict filter, default "--mindepth 4 --basequal 20 --mapqual 30 --readend 5 --basetest 0.05 --maptest 0.05 --readendtest 0.1 --fishertest 0.05 --indelregion 20 --indelcount 10"
+		-soapsnp_res <string>      set the required resource used in soapsnp without split, default "7G"
+		-soapsnp <string>          soapsnp's dir, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/soapsnp"
+		-bcftools <string>         path to bcftools, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/samtools/bcftools/bcftools"
+		-vcfutils <string>         path to vcfutils, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/samtools/bcftools/vcfutils.pl"
+	
+    ########################################################InDel##########################################################
+		
+		-gi                        generate the scripts of calling indel
+		-indel <string>            select different tools to call indel,mpileup/GATK,seperate by comma(example:mpileup,GATK), default GATK
+		-indel_filt_para <string>  the parameter for filting indel result, default "Q=20 Min_depth=4 Max_depth=1000 Min_alt_fre=0% Min_alt_depth=4"
+		-GATK <string>             path to GATK, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/GenomeAnalysisTK.jar"
+	
+    ##################################################Structual Variation##################################################
+		
+		-sv                        generate the scripts of calling SV
+		-svt <string>              select different tools to call sv,breakdancer/crest/seeksv,seperate by comma, default seeksv
+		-clip_para <string>        set the parameter for seeksv getclip, default "-t 0.85 -q 20"
+		-seeksv_para <string>      set the parameter for seeksv getsv, default "-t 0.85 -l 50 -q 20 -Q 1 -w 1 -n 5000000 -r -b 3 -d 50 -e 0 -R 500 -f 0.1 -T 50 -m 30 -i 1 -L 200"
+		-seeksv_flag               Set it ON only if you have got every sample's seeksv result when you want to call somatic sv by using seeksv, default OFF
+		-crest_step1_para <string> the parameter for extractSClip.pl
+		-crest_step2_para <string> the parameter for CREST.pl
+		-crest_server <string>     set the server for CREST.pl, default "192.168.171.31"
+		-sv_filt <string>          the parameter for filting breakdancer SV, default "-m 100 -x 1000000 -s 30 -d 5"
+		-seeksv <string>           path to seeksv, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/seeksv/seeksv-V1.1.1/bin/seeksv"
+		-seeksv_res <string>       set the required resource used in seeksv, default "4G"
+		-break_res <string>        set the required resource used in breakdancer, default "10G"
+
+		-scnv                      generate the scripts of calling each sample's CNV
+		-cnvnator <string>         CNVnator's dir, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/CNVnator"
+		-split_fa_dir <string>     the split fa dir for other species. (except for hg18/hg19/mm9/mm10)
+
+		-virus                     generate the scripts of virus integration detection
+
+    #######################################################Somatic#########################################################
+		
+		-somatic <file>            set the pair samples to call somatic, input file(example:normal1	tumor1)
+		-purity                    generate the scripts of tumor purity calculation
+		-somatic_filt_para<string> the parameter for filting somatic result, default "Normal_depth=10 Tumor_depth=10 Max_normal_altfre=2% Min_tumor_altfre=10% Somatic_p_value=0.05"
+		-varscan <string>          path to VarScan, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/VarScan.v2.2.5.jar"
+
+        ##################################################Somatic SNV#################################################
+
+		-snv <string>              generate the scripts of calling snv, select different tools to call snv, varscan/mutect/soapsnv/sniper, seperate by comma
+		-varscan_para <string>     set the parameter for VarScan SNV, default "--min-coverage 10 --min-coverage-normal 10 --min-coverage-tumor 10 --min-var-freq 0.1 --min-freq-for-hom 0.75 --somatic-p-value 0.05"
+		-mutect_para <string>      set the parameter for muTect
+		-snv_strict_para <string>  set the parameter for snv's strict filter, default "--mapqual 30 --basetest 0.05 --maptest 0.05 --readendtest 0.1 --fishertest 0.05 --mindepth 3 --basequal 20 --readend 5 --normalfreq 0.02 --indelregion 20 --indelcount 10"
+		-sniper <string>           path to somaticsniper, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/bam-somaticsniper"
+
+        #################################################Somatic InDel################################################
+
+		-somaticindel <string>     generate the scripts of calling somatic indel,select different tools to call somatic indel,GATK/varscan, seperate by comma
+                -gatk_sindel_para <string> set the parameter for GATK -T SomaticIndelDetector, default "-minCoverage 10 -minNormalCoverage 10 -minFraction 0.1 -minConsensusFraction 0.7 -minCnt 3"
+		-sind_strict_para <string> set the parameter for somaticindel's strict filter, default "-dpN 5 -dpT 5"
+
+        ##################################################Somatic CNV#################################################
+
+		-cnv                       generate the scripts of calling somatic CNV
+		-cnvt <string>             select different tools to call Exome CNV,varscan/Ecnv,seperate by comma, default Ecnv. Just for hg19
+		-cnv_wgs_para <string>     the parameter for filting CNV_WGS, default "-s 3000 -e 30 -W 400 -up 1.25 -down 0.75"
+		-varscan_copynumber_para   set the parameter for VarScan copynumber, default "--min-base-qual 10 --min-map-qual 0 --min-coverage 10 --p-value 0.05" <string>
+		-varscan_copyCaller_para   set the parameter for VarScan copyCaller, default "--min-coverage 10 --amp-threshold 0.321 --del-threshold 0.415" <string>
+
+        ##################################################Somatic SV##################################################
+
+		-somaticsv                 generate the scripts of calling somatic sv
+		-ssvt <string>             select different tools to call somatic sv,crest/seeksv,seperate by comma, default seeksv
+		-seeksv_s_para <string>    set the parameter for seeksv somatic, default "-t 0.85 -q 20 -l 30 -m 10 -n 5000000"
+		-seeksv_s_res <string>     set the required resource used in seeksv somatic, default "4G"
+
+    ######################################################Annotation#######################################################
+
+		-annovar <string>          annovar's dir, default "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/annovar"
+		-annovar_db <int>          set the version of dbSNP for annovar, default "135"
+		
+		-ganno2                    select the modified annotation program (by LiMiao), just for snp/indel format. Path: "/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/bin/Tool/annodb/annodb.pl"
+		-ganno2_db                 Optional database. Separated by comma. Available options are [HGMD COSMIC ENCODE YH ESP], default is [ESP,HGMD,COSMIC,YH,ENCODE].  If none are needed, use ' '.
+		-annovar_db_new <string>   set the version of dbSNP for annodb.pl (-ganno2 mode), [v138_hg19 v137_hg19], default "v138_hg19"
+		
+    #########################################################Mode##########################################################
+
+		-region <string>           Exome Capture region's dir,include the source region file and its bed file(example:/ifshk1/BC_CANCER/01bin/DNA/software/pipeline/CSAP_v5.2.5/Database/ExonCaputreRegion/ExonCaptureRegion_hg19_Nimblegen_64M)
+
+		-split                     call variations by each chromsome
+		-strict                    do the strict filter for snp/snv/GATK's somaticindel
+		-upload                    generate the upload
+
+		-capture <float>           capture suitable reads(float x)
+		-X                         already exists sample/QC/all_data.depth, must contain the line "Average_sequencing_depth:	number" (force -capture && Exome Capture). Default off
+		
+		-cleandata                 the fq file is clean reads. default: off
+
+		-h                         show this help and exit
+		
+Description
+
+	The format of sample info:
+	
+	S50	/share/fqdata037/solexa/HKC11022-03_HUMjroX/EXONPEP00004826/120329_I658_FCC0L2PACXX_L5_HUMjroXAAKAAAPEI-24/120329_I658_FCC0L2PACXX_L5_HUMjroXAAKAAAPEI-24	90
+	

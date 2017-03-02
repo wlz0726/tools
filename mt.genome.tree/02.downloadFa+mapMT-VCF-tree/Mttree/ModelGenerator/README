@@ -1,0 +1,8 @@
+Thomas Keane, 09:22 14/12/2004
+To run modelgenerator:
+
+	- extract the jar file to a directory
+	- the program accepts fasta and phylip format alignments
+	- the startup command is: java -jar modelgenerator.jar align_file num_gamma_categories
+
+If you are using a large dataset and run out of memory, then increase the amount of memory available to java by using the -Xmx option (e.g. java -Xmx200m modelgenerator.jar align_file num_gamma_categories)
