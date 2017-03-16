@@ -1,0 +1,3 @@
+persistent/cPersistence.so
+persistent/_timestamp.so
+persistent/cPickleCache.so

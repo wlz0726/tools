@@ -1,0 +1,2 @@
+# merge 
+java -Xmx2G -Djava.io.tmpdir=tmp -XX:MaxPermSize=512m -XX:-UseGCOverheadLimit -jar picard.jar MergeSamFiles MAX_FILE_HANDLES=1000 I=sampleA01.rmdup.bam I=sampleA02.rmdup.bam I=sampleA03.rmdup.bam O=sampleA.all.bam TMP_DIR=tmp SO=coordinate AS=true VALIDATION_STRINGENCY=SILENT

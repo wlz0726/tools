@@ -33,6 +33,10 @@ foreach my $cmd(@cmd){
 #\$ -cwd
 #\$ -P st_supermem
 #\$ -q supermem.q
+##-q supermem.q\@supermem-0-0 
+# 1T:   supermem-0-0
+# 250G: supermem-0-2 supermem-0-3 supermem-0-4
+
 ";
     my $pwd=`pwd`;
     chomp $pwd;

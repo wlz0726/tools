@@ -1,0 +1,22 @@
+Metadata-Version: 1.0
+Name: drmaa
+Version: 0.6
+Summary: a python DRMAA library
+Home-page: http://drmaa-python.googlecode.com
+Author: David Ressman
+Author-email: davidr@ressman.org
+License: BSD
+Download-URL: http://code.google.com/p/drmaa-python/downloads/list
+Description: UNKNOWN
+Keywords: python grid hpc drmaa
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Distributed Computing

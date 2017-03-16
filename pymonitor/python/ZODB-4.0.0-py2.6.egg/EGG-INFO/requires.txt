@@ -1,0 +1,12 @@
+persistent
+BTrees
+ZConfig
+transaction
+six
+zc.lockfile
+zdaemon >= 4.0.0a1
+zope.interface
+
+[test]
+zope.testing
+manuel

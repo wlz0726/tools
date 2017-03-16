@@ -1,0 +1,9 @@
+zope.interface
+
+[docs]
+Sphinx
+repoze.sphinx.autointerface
+
+[testing]
+nose
+coverage

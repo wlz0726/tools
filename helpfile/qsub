@@ -1,12 +1,20 @@
 qsub -cwd -l vf=1G -P AEAInte -q bc.q test.sh
 qsub -cwd -l vf=100G -P AEAInte -q bc_supermem.q test.sh (Big Memery)
 
-ProjectNum：
-CATwiwR : Cattle
-AEAInte : test
-
 qstat  # check job
 qdel   # kill job
 qsub job.sh
 
 for i in DIROUT/*.pbs; do qsub $i;done
+
+# qalter 
+qalter [-a date_time] [-A account_string] [-e path] [-h hold_list]
+[-j join] [-k keep] [-l resource_list] [-m mail_options] [-M
+user_list] [-N name] [-n cpu|mem|syn [-L v1,[v2,[v3,[v4]]]]] [-o
+path] [-p priority] [-r c] [-u user_list] job_identifier... 
+
+qalter -l vf=1G -q bc.q@compute-0-7 9163290
+qalter -q supermem.q@supermem-0-3 9179122
+
+# 1T:   supermem-0-0
+# 250G: supermem-0-2 supermem-0-3 supermem-0-4

@@ -1,0 +1,2 @@
+# remove PCR duplicates
+java -Xmx2G -Djava.io.tmpdir=tmp -XX:MaxPermSize=512m -XX:-UseGCOverheadLimit -jar picard.jar MarkDuplicates MAX_FILE_HANDLES=1000 REMOVE_DUPLICATES=true I=sampleA.sort.bam O=sampleA.rmdup.bam METRICS_FILE=sampleA.txt TMP_DIR=tmp VALIDATION_STRINGENCY=SILENT

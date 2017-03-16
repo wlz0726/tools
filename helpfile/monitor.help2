@@ -1,0 +1,144 @@
+/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/pymonitor/monitor
+monitor stat
+
+# help
+monitor
+
+# 
+monitor stat
+monitor stat -p NAME -m 1  #output svg
+monitor stat -p NAME -m 3  #output details
+
+# kill project
+monitor removeproject -p NAME -m 1
+
+
+	Task submit and monitor system for SGE environment.
+	Created by Li Miao(limiao@genomics.cn). Version 1.0.1 (20140225)
+	
+	Usage:
+		monitor <command> [arguments]
+	
+	Command should be one of the following command. Arguments depend on specific command.
+	
+	Command List:
+		taskmonitor	Add a task_monitor.py format task list.
+			Arguments:
+			-i <FILE>	input config.txt file.
+			-P <STR>  	-P argument for qsub.
+			-q <STR>	-q argument for qsub.
+			-n <INT>	maximum number of jobs.
+			-p <STR>	project name for monitor.
+			-f <INT>	Finish Mark.
+				0	Using the strings specified by -s option at the end of .e files.
+				1	Using .sign files.
+				2	Don't check.
+				3	Using the strings specified by -s option at the end of .o files.
+			-s <STR>	Finish string for -f option.
+			-m <INT>	Operation mode for resubmitting the same project.
+				0	Resubmit those didn't successfully finished, and jobs depend on them.
+				1	Resubmit scripts that were added or modified after execution, and jobs depend on them.
+				2	Resubmit all jobs. No matter successful or not.
+
+		qsubsge		Add a qsub_sge.pl format task list.
+			Arguments:
+			-i <FILE>	input work.sh file.
+			-L <INT>	number of lines to form a job
+			-P <STR>  	-P argument for qsub.
+			-q <STR>	-q argument for qsub.
+			-l <STR>	resource limitation.
+			-n <INT>	maximum number of jobs.
+			-p <STR>	project name for monitor.
+			-f <INT>	Finish Mark.
+				0	Using the strings specified by -s option at the end of .e files.
+				1	Using .sign files.
+				2	Don't check.
+				3	Using the strings specified by -s option at the end of .o files.
+			-s <STR>	Finish string for -f option.
+			-m <INT>	Operation mode for submitting in the same project.
+				0	Resubmit those didn't successfully finished, and jobs depend on them.
+				1	Regenerate and resubmit all jobs. No matter successful or not.
+				2	Submit new jobs parallel with the old jobs.
+				3	Submit new jobs depend on the old jobs.
+		
+		directrun		Directly execute a program on compute node.
+			Arguments:
+			-i <FILE>	program to be executed. Must be quoted by ' '.
+			-b		program is a binary executable file.
+			-d		program reads from stdin stream. (for pipe)
+			-P <STR>  	-P argument for qsub.
+			-q <STR>	-q argument for qsub.
+			-l <STR>	resource limitation.
+
+		stat		List all project status monitored by this program.
+			Arguments:
+			-p <STR>	Project name. If not specify, show all projects.
+			-m <INT>	Display mode:
+				0	Show status of the project.
+				1	Show figure of the project.
+				2	Show name of all projects.
+				3	Show job detail of the project.
+			-e <STR>	email address. By specifing this arguments, the above information will be sent as email. (only support -m 0 and -m 1)
+		
+		setdefault	Set default value.
+			-m <INT>	Daily email sending mode:
+				0	Send text summary.
+				1	Send figure summary.
+				2	Do not send.
+			-e <STR>	email address.
+			-P <STR>  	-P argument for qsub.
+			-q <STR>	-q argument for qsub.
+			-n <INT>	Monitor running interval (minutes). This will also change monitor node to current node.
+			-l <STR>	resource limitation.
+			-L <INT>	Minimal disk free space(G).
+
+		pauseproject	Pause jobs belong to the specified project.
+			Arguments:
+			-p <STR>	project name for monitor.
+			-m <INT>	Operation mode:
+				0	Waiting for current running jobs to complete, but don't submit new jobs in this project.
+				1	Immediately put all jobs in this project to Hold state.
+
+		resumeproject	Resume paused project.
+			Arguments:
+			-p <STR>	project name for monitor.
+
+		removeproject	Remove a project. Removing a project will delete the monitor database and the project can not be resumed.
+			Arguments:
+			-p <STR>	project name for monitor.
+			-m <INT>	Operation mode:
+				0	Waiting for current running jobs to complete then remove the project.
+				1	Immediately stop all jobs belonging to the project then remove the project.
+			-d		Remove all finished projects.
+			-b		Remove broken project database.
+
+		updateproject	Update a project.
+			Arguments:
+			-p <STR>	project name for monitor.
+			-b		Clear job error state.
+
+		setmaxjobs	Set maxium number of jobs running in a project.
+			Arguments:
+			-p <STR>	project name for monitor.
+			-n <INT>	Set maxium jobs running at the same time.
+
+		logdump		Dump logs of a project.
+			Arguments:
+			-p <STR>	project name for monitor.
+			-d		Delete logs from database.
+		
+		cron		Do cron job.
+			Arguments:
+			-m <INT>	Operation mode:
+				0	Do nothing.
+				1	Check job status.
+				2	Database maintance.
+				3	Add crontab.
+				4	Delete crontab.
+				5	Change monitor node to current node.
+
+		help		Show this help.
+	
+	Document:
+		The most recent document was placed in http://bgi.genomics.cn/my/personal/limiao/Shared%20Documents/Forms/AllItems.aspx
+	
