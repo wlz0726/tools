@@ -1,0 +1,2 @@
+samtools/htslib/bgzip -c file.vcf > file.vcf.gz
+samtools/htslib/tabix -p vcf file.vcf.gz

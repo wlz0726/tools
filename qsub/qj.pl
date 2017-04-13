@@ -29,6 +29,4 @@ foreach my $in(@in){
     close I;
     print "\n";
 }
-
-
 `rm .tmp`;

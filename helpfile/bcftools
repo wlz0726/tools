@@ -1,0 +1,1 @@
+/home/wanglizhong/software/samtools/bcftools/bcftools merge --merge all --no-version --threads 10 05.array.vcf.gz  05.seq.vcf.gz > 06.merge.vcf.gz

@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 # Input and usage 
+# at least 20x of each sample
 my ($ref,$bamlist,$vcflist,$poppair,$popinclude,$outdir)=@ARGV;
 die "
 Usage:
@@ -10,7 +11,7 @@ Usage:
 
        ref: reference genome with .fai index
    bamlist: 4 cols: 'Population Sample_id Average_depth file.bam'
-   vcflist: 2 cols: '/path/to/Chr1.vcf.gz Chr1'
+   vcflist: 2 cols: '/path/to/phased/Chr1.vcf.gz Chr1'
    poppair: 'PopA:PopB', one pair each line
 popinclude: Two samples(4 haps) each Pop: 'PopA  SampleA  SampleB'
             or
