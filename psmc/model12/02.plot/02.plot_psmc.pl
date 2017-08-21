@@ -1,7 +1,7 @@
 my @f=@ARGV;
 die "$0 outprefix 1.psmc 2.psmc ...
 # change the gnuplot path of 'plot_psmc_MAR_SAT_SL.pl' first
-# edit the script of the parameter (-u -g ... ) if you need 
+# edit the script of the parameter (-u -g ... ) if you need ; '-u 9.796e-9 -g 5'
 \n"unless @ARGV;
 my @out;
 my $out=shift(@f);

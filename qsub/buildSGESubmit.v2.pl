@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 my($fileIn,$mem,$proj_num)=@ARGV;
-die("usage: $0 <shell_script> [mem] [project_num] \n\nProject_num: \nAEAInte(test)\nCATwiwR(cattle) \nRATxdeR ANIttkR(BlindMoleRat) \nSHEtbyR(sheep) \nHUMmuzR HUMdwcR (zangyi)\n\n AEAInte (test)\n")unless($fileIn);
+die("usage: $0 <shell_script> [mem] [project_num] \n\nProject_num: \nAEAInte(test)\nCATwiwR(cattle) \nRATxdeR(BlindMoleRat) \nSHEtbyR(sheep) \nHUMmuzR HUMdwcR (zangyi)\n\n AEAInte (test)\n")unless($fileIn);
 # MOUwueR (zwy) AEAInte(test)
 $proj_num||="HUMdwcR";
 $mem||="1";
@@ -39,7 +39,7 @@ foreach my $cmd(@cmd){
     print Fo "cd $pwd\n\n";
     print Fo "date1=`date \"+%Y-%m-%d %H:%M:%S\"`; date1_sys=`date -d \"\$date1\" +%s`;echo \"start running ========= at \$date1\"\n\n";
     
-    print Fo "$cmd\n\n";
+    print Fo "sh $cmd\n\n";
     
     print Fo "date2=`date \"+%Y-%m-%d %H:%M:%S\"`; date2_sys=`date -d \"\$date2\" +%s`; interval=`expr \$date2_sys - \$date1_sys`; hour=`expr \$interval / 3600`;left_second=`expr \$interval % 3600`; min=`expr \$left_second / 60`; second=`expr \$interval % 60`; echo \"done  running ========= at \$date2 in \$hour hour \$min min \$second s\"\n";
     close(Fo);
