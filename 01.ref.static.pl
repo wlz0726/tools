@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Bio::SeqIO;
 my $fastaFile=shift;
-die("$0: fastaFile\n") unless($fastaFile);
+die("perl $0 <fastaFile> \n") unless($fastaFile);
 my %seqs;
 my $totallen=0;
 my $totalN=0;

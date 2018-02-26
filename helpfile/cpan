@@ -1,7 +1,7 @@
 cpan
 install GD::Graph::histogram
 
-cpanm -l /ifshk5/PC_HUMAN_EU/USER/wanglizhong/perl5 Math::Random
+cpanm -l /ifshk7/BC_PS/wanglizhong/perl5.new Math::Random
 
 
 

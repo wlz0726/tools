@@ -3,9 +3,10 @@
 use strict;
 use warnings;
 
-my($fileIn,$mem)=@ARGV;
-die("usage: inCmd mem \n")unless($mem);
+my($fileIn,$mem,$ncpus)=@ARGV;
+die("usage: inCmd mem num_of_cpu \n")unless($mem);
 #ProjectNum[ CATwiwR(cattle) or AEAInte(test) or st_supermem] queue[bc.q OR bc_supermem.q]\n")unless($proj_num);
+$ncpus||="5";
 
 my $name="z.$fileIn.SuperMem";
 my $dirout="z.$fileIn.SuperMem";
@@ -29,6 +30,7 @@ foreach my $cmd(@cmd){
 #\$ -e $dirout/$name-$i.pbs.\$JOB_ID.e
 #\$ -o $dirout/$name-$i.pbs.\$JOB_ID.o
 #\$ -l vf=${mem}G
+#\$ -l ncpus=${ncpus}
 #\$ -m n
 #\$ -cwd
 #\$ -P st_supermem

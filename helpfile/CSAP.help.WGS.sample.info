@@ -1,0 +1,15 @@
+three cols:
+1: Sample ID 
+2: prefix of 1.fq.gz /home/wanglizhong/project/03.sheep.SHEtbyR/14.add.seq/RD-F13FTSNCKF1344_SHEyjyR/SZAIPI033547-81/170804_I133_FCHK3CGBBXX_L2_SZAIPI033547-81/170804_I133_FCHK3CGBBXX_L2_SZAIPI033547-81_1.fq.gz
+3: reads length
+
+for a directory: 
+
+$ ls /home/wanglizhong/project/03.sheep.SHEtbyR/14.add.seq/RD-F13FTSNCKF1344_SHEyjyR/SZAIPI033547-81/170804_I133_FCHK3CGBBXX_L2_SZAIPI033547-81/
+1.adapter.list.gz  1.fqcheck                                          170804_I133_FCHK3CGBBXX_L2_SZAIPI033547-81_1.fq.gz  2.adapter.list.gz  2.fqcheck  index     report.htm
+1.adapter.stat     170804_I133_FCHK3CGBBXX_L2_SZAIPI033547-81.report  170804_I133_FCHK3CGBBXX_L2_SZAIPI033547-81_2.fq.gz  2.adapter.stat     base.png   qual.png
+
+input WGS.sample.info like this:
+
+SZAIPI033547-81 /home/wanglizhong/project/03.sheep.SHEtbyR/14.add.seq/RD-F13FTSNCKF1344_SHEyjyR/SZAIPI033547-81/170804_I133_FCHK3CGBBXX_L2_SZAIPI033547-81/170804_I133_FCHK3CGBBXX_L2_SZAIPI033547-81 100
+

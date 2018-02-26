@@ -2,9 +2,12 @@
 use strict;
 use warnings;
 
-my($fileIn,$mem,$copy_numbers,$proj_num)=@ARGV;
-die("usage: <inCmd> <mem> <split_numbers>  (or CATwiwR(cattle) RATxdeR(BlindMoleRat) SHEtbyR(sheep) MOUwueR (zwy) AEAInte(test))\n")unless($copy_numbers);
-$proj_num||="CATwiwR";
+my($fileIn,$copy_numbers,$mem,$proj_num)=@ARGV;
+die("usage: <inCmd> <split_numbers> [mem] [proj_num]  (or CATwiwR(cattle) RATxdeR(BlindMoleRat) SHEtbyR(sheep) MOUwueR (zwy) AEAInte(test))\n")unless($copy_numbers);
+#$proj_num||="CATwiwR";
+$proj_num||="HUMdwcR";
+$mem||="1";
+
 
 `perl /home/wanglizhong/bin/000.split.sh.pl $fileIn $copy_numbers`;
 

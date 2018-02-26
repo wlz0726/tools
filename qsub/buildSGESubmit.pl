@@ -2,11 +2,12 @@
 use strict;
 use warnings;
 
-my($fileIn,$mem,$proj_num)=@ARGV;
-die("usage: $0 <shell_script> [mem] [project_num] \n\nProject_num: \nAEAInte(test)\nCATwiwR(cattle) \nRATxdeR ANIttkR(BlindMoleRat) \nSHEtbyR(sheep) \nHUMmuzR HUMdwcR (zangyi)\n\n AEAInte (test)\n")unless($fileIn);
+my($fileIn,$mem,$ncpus,$proj_num)=@ARGV;
+die("usage: $0 <shell_script> [mem(1)] [num_Of_cpu(5)] [project_num(HUMdwcR)] \n\nProject_num: \nAEAInte(test)\nCATwiwR(cattle) \nRATxdeR ANIttkR(BlindMoleRat) \nSHEtbyR(sheep) SHElxuR \nHUMmuzR HUMdwcR (zangyi)\n\n AEAInte (test)\n")unless($fileIn);
 # MOUwueR (zwy) AEAInte(test)
 $proj_num||="HUMdwcR";
 $mem||="1";
+$ncpus||="5";
 my $name="z.$fileIn.z";
 my $dirout="z.$fileIn.z";
 `mkdir $dirout` unless(-e $dirout);
@@ -29,6 +30,7 @@ foreach my $cmd(@cmd){
 #\$ -e $dirout/z.$fileIn.$i.pbs.\$JOB_ID.e
 #\$ -o $dirout/z.$fileIn.$i.pbs.\$JOB_ID.o
 #\$ -l vf=${mem}G
+#\$ -l p=${ncpus}
 #\$ -m n
 #\$ -cwd
 #\$ -P $proj_num
