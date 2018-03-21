@@ -26,6 +26,7 @@ foreach my $file(@f){
 #\$ -e $dirout/z.$file.pbs.\$JOB_ID.e
 #\$ -o $dirout/z.$file.pbs.\$JOB_ID.o
 #\$ -l vf=${mem}G
+#\$ -l p=5
 #\$ -m n
 #\$ -cwd
 #\$ -P $proj_num

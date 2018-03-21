@@ -30,7 +30,7 @@ foreach my $cmd(@cmd){
 #\$ -e $dirout/$name-$i.pbs.\$JOB_ID.e
 #\$ -o $dirout/$name-$i.pbs.\$JOB_ID.o
 #\$ -l vf=${mem}G
-#\$ -l ncpus=${ncpus}
+#####\$ -l ncpus=${ncpus}
 #\$ -m n
 #\$ -cwd
 #\$ -P st_supermem
