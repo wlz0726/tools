@@ -15,7 +15,7 @@ print OUT "library(\"ggplot2\")\n";
 print OUT "
 a <- read.table(\"$list\",head=F)\n
 #ggplot(a,aes(x=a\$$name))+geom_histogram(binwidth=0.01)+xlim(0,1)+xlab(\"$list\")+ylab(\"frequence\")\n
-ggplot(a,aes(x=a\$$name))+geom_histogram(binwidth=10)+xlab(\"$list\")+ylab(\"frequence\")+xlim($lim_min,$lim_max)\n
+ggplot(a,aes(x=a\$$name))+geom_histogram(binwidth=0.01)+xlab(\"$list\")+ylab(\"frequence\")+xlim($lim_min,$lim_max)\n
 ";
 
 print OUT "dev.off()\n";

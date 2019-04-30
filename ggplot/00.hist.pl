@@ -4,15 +4,16 @@ use warnings;
 
 my $list=shift;
 my $name=shift;
-die "$0 List RowName\n" unless $name;
+my $binwidth=shift;
+die "$0 <List> <RowName> [binwidth]\n" unless $name;
+
 open(OUT,"> $list.$name.Rscript");
 print OUT "pdf(file=\"$list.$name.pdf\")\n";
 print OUT "library(\"ggplot2\")\n";
 
 print OUT "
 a <- read.table(\"$list\",header=T)\n
-#ggplot(a,aes(x=a\$$name))+geom_histogram()+xlab(\"$list\")+ylab(\"frequence\")+scale_y_log10()\n
-ggplot(a,aes(x=a\$$name))+geom_histogram()+xlab(\"$list\")+ylab(\"frequence\")\n
+ggplot(a,aes(x=a\$$name))+geom_histogram()+xlab(\"$list\")+ylab(\"variant count\")
 ";
 
 print OUT "dev.off()\n";

@@ -25,3 +25,6 @@ git commit -a -m "your commit message"
 git push origin master (branch name)
 
 # web set pull request (branches--branch name--add pull request)
+
+# git clone
+git clone --recursive https://github.com/mfumagalli/ngsTools.git
